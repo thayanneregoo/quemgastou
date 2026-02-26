@@ -12,12 +12,16 @@ export async function loginAction(formData: FormData) {
   }
 
   // aqui entraria banco / auth
-  const loginValido = email === "teste@email.com" && password === "123"
+  const loginValido = email === "joana@example.com" && password === "1234"
 
-  if (!loginValido) {
-    throw new Error("Credenciais inválidas")
+  if (!loginValido) {   
+    console.log("Login falhou para:") // Log para depuração
+    return {
+      error: "Email ou senha inválidos",
+   
+    }
   }
 
   // sucesso → redireciona
-  redirect("/dashboard")
+  redirect("/home")
 }
